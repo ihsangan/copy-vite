@@ -1,24 +1,40 @@
-import { useState } from "react"
+import { useState, KeyboardEvent } from "react"
 import { Card, CardContent, CardHeader } from "./components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "./components/ui/avatar"
 import { MapPin, Mail, Phone, Cake, Briefcase, Heart, Quote } from "lucide-react"
 
-function App() {
+interface ProfileCardProps {
+  name?: string
+  jobTitle?: string
+  address?: string
+  email?: string
+  phone?: string
+  birthday?: string
+  imageUrl?: string
+  hobbies?: string[]
+  motto?: string
+}
+
+export default function FlippableProfileCard({
+  name = "Jane Doe",
+  jobTitle = "Software Engineer",
+  address = "123 Tech Street, Silicon Valley, CA",
+  email = "jane.doe@example.com",
+  phone = "+1 (555) 123-4567",
+  birthday = "May 15, 1990",
+  imageUrl = "/placeholder.svg?height=100&width=100",
+  hobbies = ["Reading", "Hiking", "Photography"],
+  motto = "Learn, grow, and make a difference every day."
+}: ProfileCardProps) {
   const [isFlipped, setIsFlipped] = useState(false)
 
-  const profile = {
-    name: "John Smith",
-    jobTitle: "Product Manager",
-    address: "456 Innovation Ave, Tech City, NY",
-    email: "john.smith@techcorp.com",
-    phone: "+1 (555) 987-6543",
-    birthday: "December 10, 1985",
-    imageUrl: "https://example.com/john-smith-profile.jpg",
-    hobbies: ["Traveling", "Cooking", "Playing guitar"],
-    motto: "Innovation is the key to success"
-  };
-
   const handleFlip = () => setIsFlipped(!isFlipped)
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      handleFlip()
+    }
+  }
 
   return (
     <div
@@ -91,5 +107,3 @@ function App() {
     </div>
   )
 }
-
-export default App
