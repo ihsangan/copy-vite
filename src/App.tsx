@@ -21,13 +21,13 @@ function App() {
   const handleFlip = () => setIsFlipped(!isFlipped)
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="flex items-center justify-center min-h-screen p-4">
       <div 
         className={`flip-card w-full max-w-md mx-auto cursor-pointer ${isFlipped ? 'flipped' : ''}`}
         onClick={handleFlip}
       >
         <div className="flip-card-inner">
-          <Card className="flip-card-front rounded-lg shadow-md">
+          <Card className="flip-card-front rounded-xl shadow-md overflow-hidden">
             <CardHeader className="flex flex-col items-center">
               <Avatar className="w-24 h-24">
                 <AvatarImage src={profile.imageUrl} alt={profile.name} />
@@ -59,7 +59,7 @@ function App() {
               </div>
             </CardContent>
           </Card>
-          <Card className="flip-card-back rounded-lg shadow-md">
+          <Card className="flip-card-back rounded-xl overflow-hidden shadow-md">
             <CardHeader>
               <h2 className="text-2xl font-bold text-center">{profile.name}</h2>
             </CardHeader>
@@ -69,7 +69,7 @@ function App() {
                   <Heart className="w-5 h-5 text-muted-foreground" />
                   <span className="font-semibold">Hobbies</span>
                 </div>
-                <ul className="list-disc list-inside">
+                <ul className="list-disc list-inside pl-5">
                   {profile.hobbies.map((hobby, index) => (
                     <li key={index}>{hobby}</li>
                   ))}
