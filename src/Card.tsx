@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Card, CardContent, CardHeader } from "./components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "./components/ui/avatar"
 import { MapPin, Mail, Phone, Cake, Briefcase, Heart, Quote } from "lucide-react"
+import './Card.css'
 
 function App() {
   const [isFlipped, setIsFlipped] = useState(false)

@@ -1,4 +1,4 @@
-const App = () => {
+const Home = () => {
   return (
     <div className="min-h-screen">
       <header className="flex justify-center">
@@ -28,4 +28,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Home;
